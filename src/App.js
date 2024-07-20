@@ -8,7 +8,7 @@ const messages = [
 
 const App = () => {
   const [step, setStep] = useState(1);
- 
+ const [isOpen, setIsOpen] = useState(true);
 
   const handlePrevious = () => {
     if(step > 1)
@@ -20,8 +20,17 @@ const App = () => {
       setStep(step + 1)
   }
 
+  const handleToggle = () => {
+    setIsOpen(!isOpen)
+  };
+
   return(
-    <div className="steps">
+  <>
+<button className="close" style={{cursor: "pointer"}} onClick={handleToggle}>&times;</button>
+
+   { isOpen && 
+  (
+   <div className="steps">
       <div className="numbers">
       <div className={step >= 1 ? "active" : ""}>1</div>
       <div className={step >= 2 ? "active" : ""}>2</div>
@@ -34,7 +43,10 @@ const App = () => {
     <button style={{backgroundColor: "#7950f2", color: "#fff"}} onClick={() => handlePrevious()}>Previous</button>
     <button style={{backgroundColor: "#7950f2", color: "#fff"}} onClick={() => handleNext()}>Next</button>
     </div>
-    </div>
+   </div> 
+  ) 
+  }
+  </>
   )
 };
 

@@ -6,7 +6,13 @@ const messages = [
   "Invest your new income 🤑",
 ];
 
-const App = () => {
+const App = ()=> {
+  return (
+    <Steps/>
+  )
+}
+
+const Steps = () => {
   const [step, setStep] = useState(1);
  const [isOpen, setIsOpen] = useState(true);
 
@@ -21,7 +27,7 @@ const App = () => {
   }
 
   const handleToggle = () => {
-    setIsOpen(!isOpen)
+    setIsOpen((isOpen) => !isOpen)
   };
 
   return(
@@ -50,4 +56,56 @@ const App = () => {
   )
 };
 
-export default App;
+
+
+// const App = () => {
+// return(
+//   <Counter/>
+// )
+// };
+// export default App;
+
+// const Counter = () => {
+//   const [step, setStep] = useState(1);
+//   const [count, setCount] = useState(1);
+
+//   const handleStepIncrement = () => {
+//     setStep((step) => step + 1)
+//   }
+
+//   const handleStepDecrement = () => {
+//     setStep((step) => step - 1)
+//   }
+
+//   const handleCountIncrement = () => {
+//     setCount((count) => count + step)
+//   }
+
+//   const handleCountDecrement = () => {
+//     setCount((count) => count - step)
+//   }
+
+//   const date = new Date();
+//   date.setDate(date.getDate() + count)
+
+  
+//   return(
+//     <>
+//     <button onClick={()=> handleStepDecrement()}>-</button>
+//     <span>Step: {step}</span>
+//     <button onClick={() => handleStepIncrement()}>+</button>
+
+
+//     <button onClick={() => handleCountDecrement()}>-</button>
+//     <span>Count: {count}</span>
+//     <button onClick={() => handleCountIncrement()}>+</button>
+
+//     <span>{count === 0 
+//     ? "Today is" 
+//     : count > 0 
+//     ? `${count} days from today is ` 
+//     : `${Math.abs(count)} days ago was`}</span>
+//     <span> {date.toDateString()}</span>
+//     </>
+//   )
+// };
